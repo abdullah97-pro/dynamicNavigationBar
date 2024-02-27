@@ -20,4 +20,18 @@ navigationValues = navigationValues.filter(function(value) {
     return value; //return any empty or falsy values
 });
 
+// create function to render the navigation elements dynamically
+function renderNavigation() {
+    var navigation = document.querySelector('#navigation');
+    navigation.innerHTML = ''; //clear any existing elements
+
+    navigationValues.forEach(function(value) {
+        var navItem = document.createElement('li');
+        navItem.textContent = value;
+        navigation.appendChild(navItem);
+    });
+
+    // save navigation values to localStorage
+    localStorage.setItem('navigationValues',JSON.stringify(navigationValues));
+}
 
