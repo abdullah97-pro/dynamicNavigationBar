@@ -35,3 +35,12 @@ function renderNavigation() {
     localStorage.setItem('navigationValues',JSON.stringify(navigationValues));
 }
 
+// retrive the navigation value from localStorage when page load
+window.addEventListener('load', function() {
+    var storedNavigationValues = this.localStorage.getItem('navigationValues');
+    if (storedNavigationValues) {
+        navigationValues = JSON.parse(storedNavigationValues);
+        renderNavigation(); //call the function to render the navigation
+    }
+});
+
